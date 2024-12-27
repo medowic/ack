@@ -15,6 +15,9 @@ elif [ "${1}" == "-s" ] || [ "${1}" == "--stop" ]; then
     su root -c "ack -s ${2}";
 elif [ "${1}" == "-r" ] || [ "${1}" == "--restart" ]; then
     su root -c "ack -r ${2}";
+elif [ "${1}" == "" ]; then
+    echo "Error: couldn't parse flag";
+    exit 1;
 else
     su root -c "ack main.py $*";
 fi
